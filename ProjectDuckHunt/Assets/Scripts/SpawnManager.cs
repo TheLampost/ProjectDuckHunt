@@ -1,14 +1,15 @@
-using UnityEngine;
-using System.Collections.Generic;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class SpawnManager : MonoBehaviour
 {
     public GameObject[] duckPrefabs;
 
-    private float spawnLimitXLeft = -22;
-    private float spawnLimitXRight = 7;
-    private float spawnPosY = 30;
+    private float spawnLimitXLeft = -15;
+    private float spawnLimitXRight = 15;
+    private float spawnPosY = 5;
 
     private float startDelay = 1.0f;
     private float spawnInterval = 4.0f;
@@ -31,10 +32,15 @@ public class SpawnManager : MonoBehaviour
 
         // instantiate ball at random spawn location
         Instantiate(duckPrefabs[duckIndex], spawnPos, duckPrefabs[duckIndex].transform.rotation);
-    }
-    // Update is called once per frame
-    void Update()
-    {
+
+        /*GameObject bullet = ObjectPool.SharedInstance.GetPooledObject();
+        if (bullet != null)
+        {
+            bullet.transform.position = turret.transform.position;
+            bullet.transform.rotation = turret.transform.rotation;
+            bullet.SetActive(true);
+        }*/
         
+
     }
 }

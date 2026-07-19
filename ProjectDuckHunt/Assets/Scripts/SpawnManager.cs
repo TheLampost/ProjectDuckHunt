@@ -7,9 +7,9 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject[] duckPrefabs;
 
-    private float spawnLimitXLeft = -15;
-    private float spawnLimitXRight = 15;
-    private float spawnPosY = 5;
+    private float spawnLimitXLeft = -30;
+    private float spawnLimitXRight = 30;
+    private float spawnPosY = 15;
 
     private float startDelay = 1.0f;
     private float spawnInterval = 4.0f;

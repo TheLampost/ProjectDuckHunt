@@ -7,9 +7,10 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject[] duckPrefabs;
 
-    private float spawnLimitXLeft = -30;
-    private float spawnLimitXRight = 30;
+    private float spawnMinZ = 20;
+    private float spawnMaxZ = 10;
     private float spawnPosY = 15;
+    private float spawnPosX = -20;
 
     private float startDelay = 1.0f;
     private float spawnInterval = 4.0f;
@@ -28,19 +29,10 @@ public class SpawnManager : MonoBehaviour
 
         // Generate random duck index and random spawn position
 
-        Vector3 spawnPos = new Vector3(Random.Range(spawnLimitXLeft, spawnLimitXRight), spawnPosY, 0);
+        Vector3 spawnPos = new Vector3(spawnPosX, spawnPosY, Random.Range(spawnMinZ, spawnMaxZ));
 
         // instantiate ball at random spawn location
         Instantiate(duckPrefabs[duckIndex], spawnPos, duckPrefabs[duckIndex].transform.rotation);
-
-        /*GameObject bullet = ObjectPool.SharedInstance.GetPooledObject();
-        if (bullet != null)
-        {
-            bullet.transform.position = turret.transform.position;
-            bullet.transform.rotation = turret.transform.rotation;
-            bullet.SetActive(true);
-        }*/
-        
 
     }
 }
